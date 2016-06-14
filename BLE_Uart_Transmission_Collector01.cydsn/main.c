@@ -66,7 +66,7 @@ void AppCallBack(uint32 event, void* eventParam)
 start_scan:
 						if(BleConnected == 0)
 							{
-		            StartScan(CYBLE_UUID_CUSTOMER_SERVICE);//CYBLE_UUID_CUSTOM_UART_TX_SERVICE
+		            StartScan(CYBLE_UUID_HIDS_SERVICE);//CYBLE_UUID_CUSTOM_UART_TX_SERVICE // CYBLE_UUID_CUSTOMER_SERVICE
 		            //Scanning_LED_Write(LED_ON);				
 		            ble_state = BLE_SCAN_STATE;
 							}

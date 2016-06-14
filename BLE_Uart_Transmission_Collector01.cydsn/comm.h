@@ -26,7 +26,7 @@
 
 //ble
 //#define EN_TT_CCC_HANDLE				        0x002Fu
-#define UART_TX_HANDLE								 0x000Eu
+#define UART_TX_HANDLE								 0x00EEu
 //#define CCC_DATA_LEN										21u
 #define BUTTON_UPDATA_HANDLE					 0x0019u
 #define TMP_ML_HANDLE					 				 0x0012u
