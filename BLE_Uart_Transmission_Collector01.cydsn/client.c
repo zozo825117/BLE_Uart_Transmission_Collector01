@@ -153,6 +153,9 @@ void ScanProgressEventHandler(CYBLE_GAPC_ADV_REPORT_T* eventParam)
 			                break;
 						case CYBLE_UUID_HIDS_SERVICE:
 								printf("HID Service \r\n");
+								printf("Stop Scanning, waiting for Scanning event \r\n");
+								flag |= CONNECT;
+								CyBle_GapcStopScan();
 
 							break;
                 /* other services */

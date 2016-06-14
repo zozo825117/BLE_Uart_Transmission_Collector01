@@ -1945,7 +1945,7 @@ Summary:
  expected to keep track of the devices added to the white list. This
  function has been provided to facilitate testing of the Cypress BLE
  Hardware using CySmart tool. The prototype of this function has been
- specified in ÊÖçyBle_UtilityFunctions.h? This file should not be used
+ specified in ëCyBle_UtilityFunctions.h? This file should not be used
  by the BLE Component team.
 
 Parameters:
