@@ -66,7 +66,7 @@ void AppCallBack(uint32 event, void* eventParam)
 start_scan:
 						if(BleConnected == 0)
 							{
-		            StartScan(CYBLE_UUID_HIDS_SERVICE);//CYBLE_UUID_CUSTOM_UART_TX_SERVICE
+		            StartScan(CYBLE_UUID_CUSTOMER_SERVICE);//CYBLE_UUID_CUSTOM_UART_TX_SERVICE
 		            //Scanning_LED_Write(LED_ON);				
 		            ble_state = BLE_SCAN_STATE;
 							}
@@ -103,6 +103,22 @@ start_scan:
 								memcpy(&Buffer[1],wrReqParam->handleValPair.value.val,len);
 								uCommState.Bit.BLERxFinshed = ENABLED;
 								//printf("len %d buf[0] %d  \r\n", len,Buffer[0]);
+							}
+						else if(wrReqParam->handleValPair.attrHandle == BUTTON_UPDATA_HANDLE)
+							{
+								printf("CYBLE_EVT_GATTC_HANDLE_VALUE_NTF BUTTON_UPDATA_HANDLE\r\n");
+								len = wrReqParam->handleValPair.value.len;
+								Buffer[0] = len;
+								memcpy(&Buffer[1],wrReqParam->handleValPair.value.val,len);
+
+							}
+						else if(wrReqParam->handleValPair.attrHandle == TMP_ML_HANDLE)
+							{
+								printf("CYBLE_EVT_GATTC_HANDLE_VALUE_NTF TMP_ML_HANDLE \r\n");
+								len = wrReqParam->handleValPair.value.len;
+								Buffer[0] = len;
+								memcpy(&Buffer[1],wrReqParam->handleValPair.value.val,len);
+
 							}
 								
 					break;
@@ -323,6 +339,7 @@ int main()
             *******************************************************************/    
             CommMonitorUart();
             CommMonitorBLE();
+						
             
             #if 0
             if(mainTimer != 0u)

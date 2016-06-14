@@ -16,6 +16,7 @@
 #include <project.h>
 #include <stdio.h>
 #include "common.h"
+#include "comm.h"
 
 #define CONNECT 0x01
 uint8 flag = 0;
@@ -164,6 +165,14 @@ void ScanProgressEventHandler(CYBLE_GAPC_ADV_REPORT_T* eventParam)
 								flag |= CONNECT;
 								CyBle_GapcStopScan();
               break;
+
+						case CYBLE_UUID_CUSTOMER_SERVICE:
+								printf("Customer Service \r\n");
+								printf("Stop Scanning, waiting for Scanning event \r\n");
+								flag |= CONNECT;
+								CyBle_GapcStopScan();
+
+							break;
                 
             default:
                 printf("%x \r\n", serviceUuid);
